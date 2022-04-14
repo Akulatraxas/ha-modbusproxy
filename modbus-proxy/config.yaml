@@ -1,7 +1,7 @@
-name: "modbus-test"
-description: "My first real add-on!"
+name: "modbus-proxy"
+description: "Proxy for Accessing modbus systems. Allows multiple client connections"
 version: "1.0.11"
-slug: "modbus_proxy_test"
+slug: "modbus_proxy"
 arch:
   - aarch64
   - amd64
