@@ -1,3 +1,5 @@
-name: Container for running the modbusproxy
-url: "https://github.com/Akulatraxas/ha-modbusproxy"
-maintainer: Julian Jost <julian@jost-online.eu>
+{
+  "name": "Container for running the modbusproxy",
+  "url": "https://github.com/Akulatraxas/ha-modbusproxy",
+  "maintainer": "Julian Jost <julian@jost-online.eu>",
+}
