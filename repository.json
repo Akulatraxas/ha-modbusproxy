@@ -1,5 +1,5 @@
 {
-  "name": "Container for running the modbusproxy",
+  "name": "Modbus Proxy Repository",
   "url": "https://github.com/Akulatraxas/ha-modbusproxy",
   "maintainer": "Julian Jost <julian@jost-online.eu>"
 }
