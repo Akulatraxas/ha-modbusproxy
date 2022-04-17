@@ -15,6 +15,7 @@ The addon is only tested and compatible with hassio supervisor.
 - Before starting go to the configuration page and set the ip of your modbus server. 
 - Start The Add-On
 - Configure Your Clients to connect to your HA IP and choosen port.
+- I recommend not to change the listenport in neither the network section nor the listenport. 
 
 <img width="382" alt="image" src="https://user-images.githubusercontent.com/103323/163730831-3b757097-c47f-4420-aebe-9fd357b12db4.png">
 
