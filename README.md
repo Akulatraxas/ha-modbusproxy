@@ -14,6 +14,7 @@ The addon is only tested and compatible with hassio supervisor.
   - In case you are using solaredge-modbus in homeassistant you can change the server address here: /config/.storage/core.config_entries. 
 - Before starting go to the configuration page and set the ip of your modbus server. 
 - Start The Add-On
+  - This may take a while on the first start as it builds the cointainer locally. If there is more interest ill switch to prebuild containters.
 - Configure Your Clients to connect to your HA IP and choosen port.
 - I recommend not to change the listenport in neither the network section nor the listenport. 
 
