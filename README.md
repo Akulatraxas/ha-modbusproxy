@@ -11,6 +11,7 @@ The addon is only tested and compatible with hassio supervisor.
 
 ## Configuration
 - Stop all Clients that currently connect to the modbus server. The Server might need some time before another client (our proxy) can connect.
+  - In case you are using solaredge-modbus in homeassistant you can change the server address here: /config/.storage/core.config_entries. 
 - Before starting go to the configuration page and set the ip of your modbus server. 
 - Start The Add-On
 - Configure Your Clients to connect to your HA IP and choosen port.
