@@ -17,7 +17,12 @@ The addon is only tested and compatible with hassio supervisor.
 - Configure Your Clients to connect to your HA IP and choosen port.
 - I recommend not to change the listenport in neither the network section nor the listenport. 
 
+### Configuration Tab
 <img width="382" alt="image" src="https://user-images.githubusercontent.com/103323/163730831-3b757097-c47f-4420-aebe-9fd357b12db4.png">
+
+### Output after Start
+<img width="935" alt="image" src="https://user-images.githubusercontent.com/103323/163732834-0ccc2bcd-94eb-4506-bdd1-5466fb82e76a.png">
+
 
 
 ## Mentions
