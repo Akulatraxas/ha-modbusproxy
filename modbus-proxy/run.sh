@@ -13,9 +13,8 @@ sed -i "s/__HOST__/${CONFIG_HOST}/g" ./modbus.config.yaml
 sed -i "s/__PORT__/${CONFIG_PORT}/g" ./modbus.config.yaml
 sed -i "s/__LISTENPORT__/${CONFIG_LISTENPORT}/g" ./modbus.config.yaml
 
+echo "Generated Config"
 cat ./modbus.config.yaml
 
-echo $PWD
-ls -la .
 
 modbus-proxy -c ./modbus.config.yaml

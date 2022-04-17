@@ -7,7 +7,6 @@ arch:
   - amd64
   - armhf
   - armv7
-  - i386
 startup: services
 options:
   upstreamhost: "192.168.178.74"
