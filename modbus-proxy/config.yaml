@@ -7,7 +7,7 @@ arch:
   - amd64
   - armhf
   - armv7
- url: "https://community.home-assistant.io/t/updated-solaredge-modbus-full-setup-guide-with-energy-dashboard-integration-for-installations-with-battery-connected/340956/216?u=akulatraxas"
+url: "https://community.home-assistant.io/t/updated-solaredge-modbus-full-setup-guide-with-energy-dashboard-integration-for-installations-with-battery-connected/340956/216?u=akulatraxas"
 startup: services
 options:
   upstreamhost: "192.168.178.74"
