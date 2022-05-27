@@ -5,8 +5,8 @@ Allows you to connect multiple clients to one single modbus server. Usally one m
 The addon is only tested and compatible with hassio supervisor. 
 
 ## Installation
-[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FChristophCaina%2Fha-modbusproxy)
-- Add This [Repository](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FChristophCaina%2Fha-modbusproxy) (Or click Button above) 
+[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FAkulatraxas%2Fha-modbusproxy)
+- Add This [Repository](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FAkulatraxas%2Fha-modbusproxy) (Or click Button above)
 - Install ModBusProxy from the Add-On Store
 
 ## Configuration
