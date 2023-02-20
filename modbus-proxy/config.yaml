@@ -14,14 +14,14 @@ options:
   upstreamhost: "192.168.178.74"
   upstreamport: 502
   listenport: 502
-  connecttime: 0.1
+  connection_time: 0.1
   timeout: 10
   loglevel: "INFO"
 schema:
   upstreamhost: str
   upstreamport: int
   listenport: int
-  connecttime: float
+  connection_time: float
   timeout: int
   loglevel: list(INFO|DEBUG|ERROR)
 ports:
