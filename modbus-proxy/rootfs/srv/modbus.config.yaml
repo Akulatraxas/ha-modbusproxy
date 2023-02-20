@@ -1,7 +1,19 @@
 devices:
   - modbus:
       url: __HOST__:__PORT__ # device url (mandatory)
-      timeout: 10 # communication timeout (s) (optional, default: 10)
-      connection_time: 0.1 # delay after connection (s) (optional, default: 0)
+      timeout: __TIMEOUT__ # communication timeout (s) (optional, default: 10)
+      connection_time: __CONNECTIONTIME__ # delay after connection (s) (optional, default: 0)
     listen:
       bind: 0:__LISTENPORT__ # listening address (mandatory)
+logging:
+  version: 1
+  formatters:
+    standard:
+      format: "%(asctime)s %(levelname)8s %(name)s: %(message)s"
+  handlers:
+    console:
+      class: logging.StreamHandler
+      formatter: standard
+  root:
+    handlers: ['console']
+    level: __LOGLEVEL__

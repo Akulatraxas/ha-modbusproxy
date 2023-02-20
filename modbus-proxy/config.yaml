@@ -1,6 +1,6 @@
 name: "modbus-proxy"
 description: "Proxy for Accessing modbus systems. Allows multiple client connections"
-version: "1.0.13"
+version: "1.0.14"
 slug: "modbus_proxy"
 arch:
   - aarch64
@@ -14,9 +14,15 @@ options:
   upstreamhost: "192.168.178.74"
   upstreamport: 502
   listenport: 502
+  connecttime: 0.1
+  timeout: 10
+  loglevel: "INFO"
 schema:
   upstreamhost: str
   upstreamport: int
   listenport: int
+  connecttime: float
+  timeout: int
+  loglevel: list(INFO|DEBUG|ERROR)
 ports:
   502/tcp: 502

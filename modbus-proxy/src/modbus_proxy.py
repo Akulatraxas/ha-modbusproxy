@@ -64,7 +64,7 @@ class Connection:
 
     async def close(self):
         if self.writer is not None:
-            self.log.info("closing connection...")
+            self.log.debug("closing connection...")
             try:
                 self.writer.close()
                 await self.writer.wait_closed()
@@ -117,7 +117,7 @@ class Client(Connection):
     def __init__(self, reader, writer):
         peer = writer.get_extra_info("peername")
         super().__init__(f"Client({peer[0]}:{peer[1]})", reader, writer)
-        self.log.info("new client connection")
+        self.log.debug("new client connection")
 
 
 class ModBus(Connection):
