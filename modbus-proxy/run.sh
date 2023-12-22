@@ -1,5 +1,7 @@
 #!/usr/bin/with-contenv bashio
 
+set +x
+
 # Create main config
 CONFIG_HOST=$(bashio::config 'upstreamhost')
 CONFIG_PORT=$(bashio::config 'upstreamport')
@@ -26,7 +28,7 @@ sed -i "s/__LOGLEVEL__/${CONFIG_LOGLEVEL}/g" ./modbus.config.yaml
 echo "Generated Config"
 cat ./modbus.config.yaml
 
-
+ls -la .
 if [ -f "./venv/bin/activate" ] ; then
     source ./venv/bin/activate
 fi
