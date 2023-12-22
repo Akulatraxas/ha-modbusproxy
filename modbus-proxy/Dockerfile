@@ -6,8 +6,13 @@ RUN \
   apk add --no-cache \
     python3 py3-pip py3-yaml
 
+# Prepare venv
+RUN python3 -m venv venv
+
 # Install modbus + py3yaml via pip
-RUN pip install modbus-proxy
+RUN source ./venv/bin/activate && \
+    pip install modbus-proxy
+
 
 # Copy data for add-on
 WORKDIR /

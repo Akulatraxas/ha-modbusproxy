@@ -26,5 +26,5 @@ sed -i "s/__LOGLEVEL__/${CONFIG_LOGLEVEL}/g" ./modbus.config.yaml
 echo "Generated Config"
 cat ./modbus.config.yaml
 
-
+source ./venv/bin/activate
 modbus-proxy -c ./modbus.config.yaml
