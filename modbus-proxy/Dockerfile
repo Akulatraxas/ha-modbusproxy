@@ -12,7 +12,7 @@ RUN cd /srv && python3 -m venv venv
 
 # Install modbus + py3yaml via pip
 RUN cd /srv && source ./venv/bin/activate && \
-    pip install modbus-proxy
+    pip install modbus-proxy py3-yaml
 
 
 # Copy data for add-on
