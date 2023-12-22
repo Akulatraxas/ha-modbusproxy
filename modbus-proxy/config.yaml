@@ -1,6 +1,6 @@
 name: "modbus-proxy"
 description: "Proxy for Accessing modbus systems. Allows multiple client connections"
-version: "1.0.18"
+version: "1.0.19"
 slug: "modbus_proxy"
 arch:
   - aarch64
