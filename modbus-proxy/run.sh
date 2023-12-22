@@ -27,4 +27,7 @@ echo "Generated Config"
 cat ./modbus.config.yaml
 
 
+if [ -f "./venv/bin/activate" ] ; then
+    source ./venv/bin/activate
+fi
 modbus-proxy -c ./modbus.config.yaml
