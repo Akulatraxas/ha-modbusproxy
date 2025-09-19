@@ -6,17 +6,18 @@ A powerful multi-device Modbus TCP proxy for Home Assistant with enhanced loggin
 
 ## ⚠️ BETA VERSION WARNING
 
-**This is a BETA version (2.2.0-beta) with experimental RTU/Serial support.**
+**This is a BETA version (2.2.1-beta) with experimental RTU/Serial and RTU over TCP support.**
 
 **⚠️ Important Notes:**
-- **Experimental Features**: RTU/Serial support is still being tested
+- **Experimental Features**: RTU/Serial and RTU over TCP support is still being tested
 - **Backup Recommended**: Backup your current configuration before testing
 - **Fallback Available**: You can always switch back to stable version 2.1.0
 - **Testing Phase**: This version is for testing RTU devices only
+- **Community Testing Needed**: RTU and RTU over TCP features need real-world testing
 
 **To install Beta version:**
 1. Go to [GitHub Releases](https://github.com/TCzerny/ha-modbusproxy/releases)
-2. Download the `v2.2.0-beta` release
+2. Download the `v2.2.1-beta` release
 3. Install as local add-on in Home Assistant
 
 **To switch back to stable version:**
@@ -27,7 +28,31 @@ A powerful multi-device Modbus TCP proxy for Home Assistant with enhanced loggin
 **Note:** The Supervisor automatically installs the latest stable version.
 Beta versions must be installed manually from GitHub Releases.
 
-## 🆕 What's New in Version 2.2.0
+## 🧪 Community Testing Needed
+
+**We need your help to test RTU features!**
+
+This beta version includes experimental RTU/Serial and RTU over TCP support that needs real-world testing. If you have:
+
+- **RTU/Serial Devices**: USB-to-Serial adapters, RS485 devices, energy meters, sensors
+- **RTU over TCP Gateways**: Network devices that provide RTU over TCP access
+- **Willingness to test**: Help us validate these features in real environments
+
+**Please help us by:**
+1. Testing RTU/Serial connections with your devices
+2. Testing RTU over TCP connections if you have compatible gateways
+3. Reporting issues, successes, or suggestions
+4. Sharing configuration examples that work
+
+**Report your testing results:**
+- ✅ **Success stories**: What devices work well
+- ❌ **Issues**: Problems you encounter
+- 💡 **Suggestions**: Improvements you'd like to see
+- 📋 **Configurations**: Working setup examples
+
+Create an issue on GitHub or join the discussion to help make these features stable!
+
+## 🆕 What's New in Version 2.2.1-beta
 
 **RTU/Serial Modbus Support:**
 - 🔌 **RTU Protocol Support**: Connect to Modbus RTU devices via serial ports
@@ -421,6 +446,8 @@ log_level: "debug"
 
 ### RTU/Serial Configuration
 
+**⚠️ BETA WARNING: RTU features are experimental and need testing!**
+
 **Important Notes for RTU Devices:**
 - 🔌 **Serial Port Access**: The add-on needs access to serial ports on the host
 - 📁 **Device Paths**: Common paths are `/dev/ttyUSB0`, `/dev/ttyACM0`, `/dev/ttyS0`
@@ -428,6 +455,7 @@ log_level: "debug"
 - 📊 **Baudrate**: Must match your device's communication speed
 - 🔄 **Parity**: Common values are `N` (None), `E` (Even), `O` (Odd)
 - ⚡ **Asyncio Support**: Non-blocking serial communication for better performance
+- 🧪 **Testing Needed**: Please report your RTU device testing results
 
 **Enhanced Features:**
 - 🔍 **Auto-Detection**: Automatically find and configure serial devices
