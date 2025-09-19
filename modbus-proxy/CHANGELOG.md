@@ -1,5 +1,46 @@
 # Changelog
 
+## [2.2.1-beta] - 2025-09-19
+
+### Added
+- **RTU over TCP Support** - Full support for Modbus RTU over TCP connections (`rtutcp://` scheme)
+- **Enhanced RTU Protocol Handling** - Improved RTU message parsing and CRC calculation
+- **RTU over TCP Unit ID Remapping** - Support for unit ID remapping in RTU over TCP connections
+
+### Fixed
+- **RTU Connection Issues** - Fixed RTU serial connection stability and error handling
+- **RTU Message Parsing** - Improved RTU frame detection and message boundary handling
+- **CRC Calculation** - Fixed CRC calculation for RTU protocol messages
+- **RTU Connection Recovery** - Enhanced connection recovery mechanisms for RTU devices
+
+### Enhanced
+- **RTU Protocol Support** - Better handling of RTU over TCP vs traditional RTU over serial
+- **Message Logging** - Enhanced debug logging for RTU over TCP connections
+- **Connection Management** - Improved connection state tracking for RTU protocols
+
+### Technical Improvements
+- **modbus_proxy.py v0.8.2** - Updated core proxy implementation with RTU over TCP support
+- **Protocol Detection** - Automatic detection of RTU vs RTU over TCP vs TCP protocols
+- **Enhanced Error Handling** - Better error handling and recovery for RTU connections
+- **CRC Validation** - Proper CRC calculation and validation for RTU messages
+
+### Core Proxy Updates (modbus_proxy.py v0.8.2)
+- **RTU over TCP Support** - New `rtutcp://` URL scheme for RTU over TCP connections
+- **Enhanced RTU Message Parsing** - Improved RTU frame parsing with proper CRC handling
+- **Fixed RTU Issues** - Resolved connection stability and message parsing problems
+- **Improved Protocol Handling** - Better distinction between RTU, RTU over TCP, and TCP protocols
+- **Enhanced Debug Logging** - Better logging for RTU over TCP connections with protocol identification
+- **CRC Calculation Fix** - Proper CRC calculation for RTU protocol messages
+- **Connection State Management** - Improved connection state tracking for all protocol types
+
+### Configuration Changes
+- Added support for `rtutcp://` URL scheme in modbus device configuration
+- Enhanced RTU protocol detection and handling
+- Improved unit ID remapping for RTU over TCP connections
+
+### Acknowledgments
+- **netadair** - Contributed PR with RTU over TCP improvements and RTU issue fixes
+
 ## [2.2.0-beta] - 2025-09-15
 
 ### Added

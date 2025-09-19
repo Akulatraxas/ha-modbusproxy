@@ -21,8 +21,7 @@ __version__ = "0.8.2"
 
 # Changelog:
 # 0.8.2 - Add RTU(over)TCP, fix RTU issues
-# 0.8.1 - Enhanced logging system with TRACE level, improved RTU support with asyncio serial
-#         - Added custom TRACE logging level for proxy activity overview
+# 0.8.1 - Improved RTU support with asyncio serial
 #         - Improved RTU/Serial support with pyserial-asyncio
 #         - Enhanced IP tracking and request counting
 #         - Better device permission handling and udev integration

@@ -31,6 +31,7 @@ Beta versions must be installed manually from GitHub Releases.
 
 **RTU/Serial Modbus Support:**
 - 🔌 **RTU Protocol Support**: Connect to Modbus RTU devices via serial ports
+- 🌐 **RTU over TCP Support**: Connect to Modbus RTU devices over TCP network (`rtutcp://` scheme)
 - 📡 **Serial Communication**: Support for USB-to-Serial adapters and RS485 devices
 - ⚙️ **Configurable Serial Parameters**: Baudrate, databits, stopbits, parity
 - 🔍 **Enhanced INFO Messages**: Clear Client ↔ Proxy ↔ Device tracking
@@ -58,19 +59,27 @@ Beta versions must be installed manually from GitHub Releases.
 2024-12-19 10:30:16 DEBUG ModBus(RTU:/dev/ttyUSB0): RTU Registers: [12345]
 ```
 
+**Example Debug Output (RTU over TCP):**
+```
+2024-12-19 10:30:16 DEBUG ModBus(RTUoverTCP:192.168.1.200:502): received RTU 8 bytes: b'010300010001C40A'
+2024-12-19 10:30:16 DEBUG ModBus(RTUoverTCP:192.168.1.200:502): received RTU: Slave=1, FC=03
+2024-12-19 10:30:16 DEBUG ModBus(RTUoverTCP:192.168.1.200:502): RTU Registers: [12345]
+```
+
 ## About
 
 Most Modbus TCP servers only allow a single client connection and reject additional clients. This add-on creates a proxy that can handle multiple client connections simultaneously while maintaining a single connection to each Modbus server.
 
 **Key Features:**
 - 🔄 Multiple client connections to single Modbus server
-- 🌐 Support for multiple Modbus devices (TCP and RTU)
+- 🌐 Support for multiple Modbus devices (TCP, RTU, and RTU over TCP)
 - ⚙️ Easy configuration through Home Assistant UI
 - 🔧 Configurable timeouts and connection parameters
 - 📊 Enhanced logging with client tracking and debug value parsing
 - 🚀 Host network mode for optimal performance
 - 🔍 Real-time client IP monitoring and request tracking
 - 🔌 RTU/Serial Modbus support with configurable serial parameters
+- 🌐 **RTU over TCP**: Connect to RTU devices over network using `rtutcp://` scheme
 - 🔍 **Auto-Detection**: Plug & play serial device detection
 - ⚡ **Asyncio Serial**: Non-blocking serial communication
 - 🛡️ **Udev Integration**: Automatic device permissions
@@ -132,6 +141,26 @@ Most Modbus TCP servers only allow a single client connection and reject additio
 
 *`device` is optional when `auto_detect_device: true` is enabled
 
+**Protocol Detection:**
+- **Explicit Protocol**: Use `protocol: "tcp"`, `protocol: "rtu"`, or `protocol: "rtutcp"`
+- **Auto-Detection**: If no protocol is specified:
+  - `host` parameter → TCP Modbus
+  - `device` parameter → RTU/Serial Modbus
+  - Both `host` and `device` → Use explicit `protocol` field
+
+#### RTU over TCP Modbus Parameters
+| Parameter | Required | Default | Description |
+|-----------|----------|---------|-------------|
+| `name` | No | `Device X` | Friendly name for the device |
+| `protocol` | **Yes** | - | Must be set to `rtutcp` for RTU over TCP |
+| `host` | **Yes** | - | IP address of the RTU over TCP server |
+| `port` | No | `502` | RTU over TCP port of the server |
+| `bind_port` | **Yes** | - | Local port where proxy will listen |
+| `unit_id_remapping` | No | - | Map incoming unit ID to target unit ID |
+| `timeout` | No | `5.0` | Connection timeout in seconds |
+| `connection_time` | No | `0.1` | Time to establish connection in seconds |
+| `log_level` | No | `info` | Logging level: `debug`, `info`, `warning`, `error` |
+
 ### Auto-Detection Configuration
 
 The add-on can automatically detect serial devices for plug & play setup:
@@ -191,7 +220,7 @@ modbus_devices:
     host: "192.168.1.100"
     port: 502
     bind_port: 503
-    unit_id_remapping: "{\"1\": 10}"
+    unit_id_remapping: "1<>10"
     timeout: 10.0
     connection_time: 2.0
   - name: "Inverter 2"
@@ -205,7 +234,7 @@ modbus_devices:
 log_level: "info"
 ```
 
-#### Mixed TCP and RTU Devices
+#### Mixed TCP, RTU, and RTU over TCP Devices
 ```yaml
 modbus_devices:
   - name: "TCP Solar Inverter"
@@ -223,13 +252,20 @@ modbus_devices:
     bind_port: 503
     timeout: 5.0
     connection_time: 1.0
+  - name: "RTU over TCP Gateway"
+    protocol: "rtutcp"
+    host: "192.168.1.200"
+    port: 502
+    bind_port: 504
+    timeout: 5.0
+    connection_time: 1.0
   - name: "RTU Temperature Sensor"
     device: "/dev/ttyACM0"
     baudrate: 115200
     databits: 8
     stopbits: 1
     parity: "E"
-    bind_port: 504
+    bind_port: 505
     timeout: 3.0
     connection_time: 0.5
 log_level: "debug"
@@ -469,6 +505,10 @@ And the complete log output from the add-on.
 This add-on is based on:
 - **Original add-on:** [Akulatraxas/ha-modbusproxy](https://github.com/Akulatraxas/ha-modbusproxy)
 - **Modbus Proxy Library:** [tiagocoutinho/modbus-proxy](https://github.com/tiagocoutinho/modbus-proxy)
+
+### Acknowledgments
+
+- **netadair** - Contributed PR with RTU over TCP improvements and RTU issue fixes
 
 
 ## License
