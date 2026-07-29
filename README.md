@@ -18,6 +18,26 @@ The addon is only tested and compatible with hassio supervisor.
 - Configure Your Clients to connect to your HA IP and choosen port.
 - I recommend not to change the listenport in neither the network section nor the listenport. 
 
+### Multiple upstream devices
+You can proxy several modbus servers at once. Each device gets its own listen port. Add a `devices` list in the add-on configuration (YAML mode):
+
+```yaml
+devices:
+  - upstreamhost: 192.168.1.212
+    upstreamport: 502
+    listenport: 502
+  - upstreamhost: 192.168.1.213
+    upstreamport: 502
+    listenport: 503
+    timeout: 5            # optional, overrides the global timeout
+    connection_time: 0.5  # optional, overrides the global connection_time
+loglevel: INFO
+```
+
+Notes:
+- When the `devices` list is set, the single device options (`upstreamhost`, `upstreamport`, `listenport`) are ignored. Without a `devices` list the add-on behaves exactly as before.
+- Each `listenport` must be unique and must also be enabled in the Network section of the add-on. Ports 502 to 510 are available there; map each one you use to the same number as the `listenport` of the device.
+
 ### Configuration Tab
 <img width="382" alt="image" src="https://user-images.githubusercontent.com/103323/163730831-3b757097-c47f-4420-aebe-9fd357b12db4.png">
 

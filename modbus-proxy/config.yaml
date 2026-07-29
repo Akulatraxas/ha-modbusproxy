@@ -1,6 +1,6 @@
 name: "modbus-proxy"
 description: "Proxy for Accessing modbus systems. Allows multiple client connections"
-version: "1.0.19"
+version: "1.1.0"
 slug: "modbus_proxy"
 arch:
   - aarch64
@@ -9,6 +9,7 @@ url: "https://community.home-assistant.io/t/updated-solaredge-modbus-full-setup-
 startup: services
 init: false
 options:
+  devices: []
   upstreamhost: "192.168.178.74"
   upstreamport: 502
   listenport: 502
@@ -16,11 +17,35 @@ options:
   timeout: 10
   loglevel: "INFO"
 schema:
-  upstreamhost: str
-  upstreamport: int
-  listenport: int
-  connection_time: float
-  timeout: int
+  devices:
+    - upstreamhost: str
+      upstreamport: int
+      listenport: int
+      connection_time: float?
+      timeout: int?
+  upstreamhost: str?
+  upstreamport: int?
+  listenport: int?
+  connection_time: float?
+  timeout: int?
   loglevel: list(INFO|DEBUG|ERROR)
 ports:
   502/tcp: 502
+  503/tcp: null
+  504/tcp: null
+  505/tcp: null
+  506/tcp: null
+  507/tcp: null
+  508/tcp: null
+  509/tcp: null
+  510/tcp: null
+ports_description:
+  502/tcp: "Modbus listen port (first device)"
+  503/tcp: "Modbus listen port (additional device)"
+  504/tcp: "Modbus listen port (additional device)"
+  505/tcp: "Modbus listen port (additional device)"
+  506/tcp: "Modbus listen port (additional device)"
+  507/tcp: "Modbus listen port (additional device)"
+  508/tcp: "Modbus listen port (additional device)"
+  509/tcp: "Modbus listen port (additional device)"
+  510/tcp: "Modbus listen port (additional device)"

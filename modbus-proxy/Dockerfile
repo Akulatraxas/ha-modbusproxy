@@ -17,7 +17,6 @@ RUN cd /srv && source ./venv/bin/activate && \
 # Copy data for add-on
 WORKDIR /
 COPY run.sh /
-COPY rootfs /
 WORKDIR /srv
 
 
