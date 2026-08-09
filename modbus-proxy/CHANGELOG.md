@@ -2,6 +2,7 @@
 
 | Version | Change                                                      |
 | ------- | ----------------------------------------------------------- |
+| 1.1.0   | optional multi device support, old config keeps working     |
 | 1.0.19  | upodating build method according to migration process       |
 | 1.0.18  | switching to proper workdir before installing venv          |
 | 1.0.17  | use of venv optional. it will use it only on rebuild        |
