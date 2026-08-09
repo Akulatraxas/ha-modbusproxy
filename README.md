@@ -49,3 +49,6 @@ Notes:
 ## Mentions
 This addon uses the modbus-proxy of tiagocoutinho:
 - https://github.com/tiagocoutinho/modbus-proxy
+
+## Contribution
+- Multi-Device Support by @jomach
